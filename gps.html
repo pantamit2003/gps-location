@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>GPS Fetch</title>
 </head>
 <body>
@@ -12,12 +13,13 @@ navigator.geolocation.getCurrentPosition(
     const lat = pos.coords.latitude;
     const lon = pos.coords.longitude;
 
-    // 🔁 LOCAL STREAMLIT PE REDIRECT
+    // ✅ STREAMLIT CLOUD URL (TUMHARA REAL APP)
     window.location.href =
-      "https://attendance-app-nuwxthtqvwsseyy8xyscn7.streamlit.app/?lat=" + lat + "&lon=" + lon;
+      "https://attendance-app-nuwxthtqvwsseyy8xyscn7.streamlit.app/?lat=" 
+      + lat + "&lon=" + lon;
   },
   function(){
-    alert("❌ Location permission denied");
+    alert("❌ Location permission denied. Please allow GPS.");
   },
   { enableHighAccuracy: true, timeout: 10000 }
 );
@@ -25,4 +27,3 @@ navigator.geolocation.getCurrentPosition(
 
 </body>
 </html>
-
