@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPS Fetch</title>
+</head>
+<body>
+<h2>📍 Fetching your location…</h2>
+
+<script>
+navigator.geolocation.getCurrentPosition(
+  function(pos){
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+
+    // 🔁 LOCAL STREAMLIT PE REDIRECT
+    window.location.href =
+      "http://192.168.1.4:8505/?lat=" + lat + "&lon=" + lon;
+  },
+  function(){
+    alert("❌ Location permission denied");
+  },
+  { enableHighAccuracy: true, timeout: 10000 }
+);
+</script>
+
+</body>
+</html>
